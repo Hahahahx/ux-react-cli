@@ -1,0 +1,63 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe D:\Nodejs\node_global\node_modules\yarn\bin\yarn.js login
+
+PATH: 
+  C:\Users\28903\bin;C:\Program Files (x86)\Git\mingw32\bin;C:\Program Files (x86)\Git\usr\local\bin;C:\Program Files (x86)\Git\usr\bin;C:\Program Files (x86)\Git\usr\bin;C:\Program Files (x86)\Git\mingw32\bin;C:\Program Files (x86)\Git\usr\bin;C:\Users\28903\bin;C:\Program Files (x86)\NetSarang\Xshell 6;C:\Program Files (x86)\NetSarang\Xftp 6;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\nodejs;D:\Nodejs\node_global;C:\Program Files\Java\jdk1.8.0_221\bin;C:\Program Files (x86)\Git\cmd;C:\Users\28903\AppData\Local\Microsoft\WindowsApps;C:\Users\28903\AppData\Roaming\npm;C:\Program Files (x86)\Git\usr\bin\vendor_perl;C:\Program Files (x86)\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  14.5.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: Can't answer a question unless a user TTY
+      at ConsoleReporter.question (D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:96800:59)
+      at D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:33208:33
+      at Generator.next (<anonymous>)
+      at step (D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:310:30)
+      at D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:328:14
+      at new Promise (<anonymous>)
+      at new F (D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:5301:28)
+      at D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:307:12
+      at getCredentials (D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:33229:17)
+      at Object.<anonymous> (D:\Nodejs\node_global\node_modules\yarn\lib\cli.js:33337:11)
+
+npm manifest: 
+  {
+    "name": "ux-react-cli",
+    "version": "1.0.3",
+    "description": "react+antd+mobx+router 脚手架(兼容ie9+，自动生成路由映射表)",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+      "ux-react-cli": "index.js"
+    },
+    "keywords": [
+      "react",
+      "mobx",
+      "ie",
+      "template"
+    ],
+    "author": "ux",
+    "license": "ISC",
+    "dependencies": {
+      "chalk": "^2.4.2",
+      "commander": "^2.20.0",
+      "download-git-repo": "^2.0.0",
+      "handlebars": "^4.1.2",
+      "inquirer": "^6.5.0",
+      "ora": "^3.4.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

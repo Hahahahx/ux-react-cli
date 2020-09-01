@@ -57,25 +57,25 @@ program
                     message: '请输入项目作者：'
                 },
                 // 选择是否使用node-sass或者less
-                {
-                    type: 'confirm',
-                    name: 'cssStyle',
-                    message: '是否使用less/node-sass：'
-                },
-                // 选择使用node-sass或者less
-                {
-                    type: 'list',
-                    message: '请选择以下css预处理器:',
-                    name: 'preprocessor',
-                    choices: [
-                        "less",
-                        "sass"
-                    ],
-                    // 只有当用户在选择是否使用node-sass或者less时输入了yes才会显示该问题
-                    when: function (answers) {
-                        return answers.cssStyle
-                    }
-                }
+                // {
+                //     type: 'confirm',
+                //     name: 'cssStyle',
+                //     message: '是否使用less/node-sass：'
+                // },
+                // // 选择使用node-sass或者less
+                // {
+                //     type: 'list',
+                //     message: '请选择以下css预处理器:',
+                //     name: 'preprocessor',
+                //     choices: [
+                //         "less",
+                //         "sass"
+                //     ],
+                //     // 只有当用户在选择是否使用node-sass或者less时输入了yes才会显示该问题
+                //     when: function (answers) {
+                //         return answers.cssStyle
+                //     }
+                // }
             ])
             .then(answers => {
             	// 与用户交互完成后，处理用户的选择
@@ -85,23 +85,23 @@ program
                     description: answers.description,// 项目描述
                     author: answers.author // 项目作者
                 }
-                if (answers.cssStyle) {
-                	//用户选择使用css预处理器
+                // if (answers.cssStyle) {
+                // 	//用户选择使用css预处理器
                 	
-                    if (answers.preprocessor === 'less') {
-                    	// 用户选择使用less
-                        params.less = true;
-                        params.sass = false;
-                    } else if (answers.preprocessor === 'sass') {
-                   		// 用户选择使用sass
-                        params.less = false;
-                        params.sass = true;
-                    }
-                } else {
-                	// 用户选择不使用css预处理器
-                    params.sass = false;
-                    params.less = false
-                }
+                //     if (answers.preprocessor === 'less') {
+                //     	// 用户选择使用less
+                //         params.less = true;
+                //         params.sass = false;
+                //     } else if (answers.preprocessor === 'sass') {
+                //    		// 用户选择使用sass
+                //         params.less = false;
+                //         params.sass = true;
+                //     }
+                // } else {
+                // 	// 用户选择不使用css预处理器
+                //     params.sass = false;
+                //     params.less = false
+                // }
                 // 打印空行，使输出与输出之间有空行，增加体验效果
                 console.log("");
                 
