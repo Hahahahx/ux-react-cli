@@ -1,6 +1,6 @@
 {
   "name": "ux-react-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "react+antd+mobx+router 脚手架(兼容ie9+，自动生成路由映射表)",
   "main": "index.js",
   "scripts": {

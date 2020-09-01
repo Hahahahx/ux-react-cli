@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // 使用node开发命令行工具所执行的js脚本必须在顶部加入 #!/usr/bin/env node 生命
 // #!/usr/bin/env node  告诉系统该脚本使用node运行，用户必须在系统变量中配置了node
-
-var fs = require("fs");
+'use strict';
+const fs = require("fs");
 /**    
  * 使用package.json中的版本信息  
  */
@@ -28,8 +28,6 @@ const ora = require('ora');
 
 // 给字体增加颜色
 const chalk = require('chalk');
-
-const fs = require('fs');
 
 // 模板下载地址
 const { downloadUrl } = require('./repository')
