@@ -1,16 +1,8 @@
 #!/usr/bin/env node
 // 使用node开发命令行工具所执行的js脚本必须在顶部加入 #!/usr/bin/env node 生命
 // #!/usr/bin/env node  告诉系统该脚本使用node运行，用户必须在系统变量中配置了node
-'use strict';
-const fs = require("fs");
-/**    
- * 使用package.json中的版本信息  
- */
-function getPackageVersion() {
-    const pkgPath = path.join(__dirname, './package.json');
-    const pkgData = JSON.parse(fs.readFileSync(pkgPath));
-    return pkgData.version;
-}
+
+const path = require('path')
 
 const program = require('commander');
 
@@ -29,8 +21,19 @@ const ora = require('ora');
 // 给字体增加颜色
 const chalk = require('chalk');
 
+const fs = require('fs');
+
 // 模板下载地址
-const { downloadUrl } = require('./repository')
+const  downloadUrl  = require('./repository')
+
+/**    
+ * 使用package.json中的版本信息  
+ */
+function getPackageVersion() {
+    const pkgPath = path.join(__dirname, './package.json');
+    const pkgData = JSON.parse(fs.readFileSync(pkgPath));
+    return pkgData.version;
+}
 
 // 设置脚手架版本
 program
@@ -71,14 +74,15 @@ program
                 //     message: '是否使用less/node-sass：'
                 // },
                 // // 选择使用node-sass或者less
-                // {
-                //     type: 'list',
-                //     message: '请选择以下css预处理器:',
-                //     name: 'preprocessor',
-                //     choices: [
-                //         "less",
-                //         "sass"
-                //     ],
+                {
+                    type: 'list',
+                    message: '请选择以下状态管理机:',
+                    name: 'preprocessor',
+                    choices: [
+                        "redux",
+                        "mobx"
+                    ],
+                }
                 //     // 只有当用户在选择是否使用node-sass或者less时输入了yes才会显示该问题
                 //     when: function (answers) {
                 //         return answers.cssStyle
@@ -91,8 +95,10 @@ program
                 let params = {
                     name: answers.name, // 项目名称
                     description: answers.description,// 项目描述
-                    author: answers.author // 项目作者
+                    author: answers.author, // 项目作者
+                    download: answers.preprocessor === 'redux'? downloadUrl.redux:downloadUrl.mobx
                 }
+
                 // if (answers.cssStyle) {
                 // 	//用户选择使用css预处理器
 
@@ -117,7 +123,7 @@ program
                 var spinner = ora('正在下载中...').start();
 
                 // 下载模板到本地
-                download(downloadUrl, projectName, { clone: true }, err => {
+                download(params.download, projectName, { clone: true }, err => {
                     if (err) {
                         console.log(err);
                         spinner.text = '下载失败';
